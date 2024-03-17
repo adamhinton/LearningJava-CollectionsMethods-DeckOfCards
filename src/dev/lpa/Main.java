@@ -46,5 +46,7 @@ public class Main {
         Collections.shuffle(deck);
         Card.printDeck(deck, "Shuffled Deck", 4);
 
+        Collections.reverse(deck);
+        Card.printDeck(deck, "Reversed Deck", 4);
     }
 }
