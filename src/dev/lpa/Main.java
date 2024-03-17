@@ -8,9 +8,6 @@ import java.util.List;
 public class Main {
     public static void main(String[] args) {
 
-        List<Card> deck = Card.getStandardDeck();
-        Card.printDeck(deck);
-
         Card[] cardArray = new Card[13];
         Card aceOfHearts = Card.getFaceCard(Card.Suit.HEART, 'A');
 
@@ -32,10 +29,22 @@ public class Main {
         List<Card> ksOfClubs = Collections.nCopies(13, kClubs);
         Card.printDeck(ksOfClubs, "Kings of Clubs", 1);
 
-//        Collections.addAll(cards, cardArray);
-//        Card.printDeck(cards, "Card collection with Aces added", 1);
+        Collections.addAll(cards, cardArray);
+        Collections.addAll(cards, cardArray);
+        Card.printDeck(cards, "Card collection with Aces added", 2);
+
+         Collections.copy(cards, ksOfClubs);
+         Card.printDeck(cards, "Card Collection w Kings copied", 2);
 
 
+         cards = List.copyOf(ksOfClubs);
+         Card.printDeck(cards, "List copy of Kings", 1);
+
+        List<Card> deck = Card.getStandardDeck();
+        Card.printDeck(deck);
+
+        Collections.shuffle(deck);
+        Card.printDeck(deck, "Shuffled Deck", 4);
 
     }
 }
