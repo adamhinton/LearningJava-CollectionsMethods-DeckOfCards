@@ -1,9 +1,6 @@
 package dev.lpa;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.List;
+import java.util.*;
 
 public class Main {
     public static void main(String[] args) {
@@ -48,5 +45,9 @@ public class Main {
 
         Collections.reverse(deck);
         Card.printDeck(deck, "Reversed Deck", 4);
+
+        var sortingAlgo = Comparator.comparing(Card::rank).thenComparing(Card::suit);
+        Collections.sort(deck, sortingAlgo);
+        Card.printDeck(deck, "Standard deck sorted by rank, suit", 13);
     }
 }
