@@ -82,5 +82,16 @@ public class Main {
         Collections.replaceAll(deck, tenClubs, tenOfHearts);
         Card.printDeck(deck.subList(32, 36), "Tens row", 1);
 
+        // List must be sorted before binarySearch
+        Collections.replaceAll(deck, tenOfHearts, tenClubs);
+        Card.printDeck(deck.subList(32, 36), "Tens row", 1);
+
+        if (Collections.replaceAll(deck, tenOfHearts, tenClubs)){
+            System.out.println("Hey hey true");
+        }
+        else{
+            System.out.println("hey hey false");
+        }
+
     }
 }
