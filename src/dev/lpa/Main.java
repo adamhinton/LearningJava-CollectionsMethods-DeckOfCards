@@ -49,5 +49,29 @@ public class Main {
         var sortingAlgo = Comparator.comparing(Card::rank).thenComparing(Card::suit);
         Collections.sort(deck, sortingAlgo);
         Card.printDeck(deck, "Standard deck sorted by rank, suit", 13);
+
+        Collections.reverse(deck);
+        Card.printDeck(deck, "Sorted by rank, suit reversed", 13);
+
+        List<Card> kings = new ArrayList<>(deck.subList(4, 8));
+        Card.printDeck(kings, "Kings in deck", 1);        List<Card> tens = new ArrayList<>(deck.subList(16, 20));
+        Card.printDeck(tens,  "Kings in deck", 1);
+
+        int subListIndex = Collections.indexOfSubList(deck, tens);
+        System.out.println("sublist for tens = " + subListIndex);
+        System.out.println("Contains = " + deck.containsAll(tens));
+
+        boolean disjoint = Collections.disjoint(deck, tens);
+        System.out.println("disjoint: " + disjoint);
+
+        boolean disjoint2 = Collections.disjoint(kings, tens);
+        System.out.println("disjoint2: " + disjoint2);
+
+        Card tenOfHearts = Card.getNumericCard(Card.Suit.HEART, 10);
+        int foundIndex = Collections.binarySearch(deck, tenOfHearts, sortingAlgo);
+        System.out.println("foundIndex: " + foundIndex);
+        System.out.println(deck.get(foundIndex));
+
+
     }
 }
