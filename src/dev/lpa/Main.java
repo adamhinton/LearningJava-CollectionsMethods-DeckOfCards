@@ -67,11 +67,20 @@ public class Main {
         boolean disjoint2 = Collections.disjoint(kings, tens);
         System.out.println("disjoint2: " + disjoint2);
 
+        // List must be sorted before binarySearch
+        // Because it searches based on the order used in .sort()
+        // Brain melting
+        // indexOf() doesn't need sorted
+        deck.sort(sortingAlgo);
         Card tenOfHearts = Card.getNumericCard(Card.Suit.HEART, 10);
         int foundIndex = Collections.binarySearch(deck, tenOfHearts, sortingAlgo);
         System.out.println("foundIndex: " + foundIndex);
+        System.out.println("foundIndex = " + deck.indexOf(tenOfHearts));
         System.out.println(deck.get(foundIndex));
 
+        Card tenClubs = Card.getNumericCard(Card.Suit.CLUB, 10);
+        Collections.replaceAll(deck, tenClubs, tenOfHearts);
+        Card.printDeck(deck.subList(32, 36), "Tens row", 1);
 
     }
 }
