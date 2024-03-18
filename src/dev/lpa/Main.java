@@ -96,5 +96,18 @@ public class Main {
         System.out.println("Ten of clubs cards = " +
                 Collections.frequency(deck, tenClubs));
 
+
+        System.out.println("Best card = " + Collections.max(deck, sortingAlgo));
+        System.out.println("Worst card = " + Collections.min(deck, sortingAlgo));
+
+        var sortBySuit = Comparator.comparing(Card::suit).thenComparing(Card::rank);
+        deck.sort(sortBySuit);
+        Card.printDeck(deck, "Sorted by suit then rank", 4);
+
+        List<Card> copied = new ArrayList<>(deck.subList(0, 13));
+        Collections.rotate(copied, 2);
+        System.out.println("Unrotated: " + deck.subList(0, 13));
+        System.out.println("Rotated: " + 2 + copied);
+
     }
 }
