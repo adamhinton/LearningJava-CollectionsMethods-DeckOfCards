@@ -93,5 +93,8 @@ public class Main {
             System.out.println("hey hey false");
         }
 
+        System.out.println("Ten of clubs cards = " +
+                Collections.frequency(deck, tenClubs));
+
     }
 }
